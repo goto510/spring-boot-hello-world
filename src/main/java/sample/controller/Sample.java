@@ -12,4 +12,11 @@ public class Sample {
     String sample() {
         return "Hello world";
     }
+
+    @CrossOrigin
+    @GetMapping("/ready")
+    String ready() {
+        return "Ready go";
+    }
+
 }
