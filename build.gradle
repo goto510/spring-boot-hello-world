@@ -1,62 +1,26 @@
-plugins {
-    id 'java'
-}
-
-plugins {
-    id 'java'
-}
-
 buildscript {
+    ext {
+        springBootVersion = '1.5.10.RELEASE'
+    }
     repositories {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.9.RELEASE")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
     }
 }
 
-apply plugin: "java"
+apply plugin: 'java'
 apply plugin: "spring-boot"
-apply plugin: "eclipse"
-
-eclipse {
-    classpath {
-        containers "org.springsource.ide.eclipse.gradle.classpathcontainer"
-    }
-}
-
-jar {
-    baseName = "spring-boot-hello-world"
-    version =  "0.0.1-SNAPSHOT"
-}
+apply plugin: 'idea'
 
 repositories {
     mavenCentral()
 }
-
-dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web")
-    testCompile("org.springframework.boot:spring-boot-starter-test")
-}
-version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
-
-repositories {
-    mavenCentral()
-}
+targetCompatibility = 1.8
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-}
-version '1.0-SNAPSHOT'
-
-sourceCompatibility = 1.8
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile('org.springframework.boot:spring-boot-starter-web')
 }
