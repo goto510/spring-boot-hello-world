@@ -16,7 +16,7 @@ public class Sample {
     @CrossOrigin
     @GetMapping("/ready")
     String ready() {
-        return "Ready go";
+        return "Ready go!";
     }
 
 }
