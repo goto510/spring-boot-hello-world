@@ -1,5 +1,7 @@
 package sample.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,5 +26,14 @@ public class Sample {
     public String getModel() {
         SampleModel res = sampleService.getSample();
         return res.getName();
+    }
+
+    @CrossOrigin
+    @GetMapping("/json")
+    public String getJson() throws JsonProcessingException {
+        SampleModel res = sampleService.getSample();
+        ObjectMapper mapper = new ObjectMapper();
+        String json = mapper.writeValueAsString(res);
+        return json;
     }
 }
